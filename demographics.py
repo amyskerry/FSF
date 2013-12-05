@@ -28,7 +28,8 @@ keycode=myform['keycode'].value
 qindex=int(qindex)
 formindex=myform['rownum'].value
 #print "<p>these are the ids: %s </p>" %(theids)
-lastrating1=lastrating2=lastrating3=lastrating4=lasttiming1=lasttiming2=lasttiming3=lasttiming4=''
+lastrating1=lastrating2=lastrating3=lastrating4=lasttiming1=lasttiming2=lasttiming3=lasttiming4=lastrating5=lastrating6=lastrating7=lastrating8=lastrating9=lastrating10=lasttiming5=lasttiming6=lasttiming7=lasttiming8=lasttiming9=lasttiming10=''
+#omg so ghetto I'm sorry
 try:
 	lastrating1=myform['ratingvector1'].value
 except: pass
@@ -54,10 +55,46 @@ try:
 	lasttiming4=myform['timevector4'].value
 except: pass
 try:
-	lastrating=lastrating1+lastrating2+lastrating3+lastrating4
+        lastrating5=myform['ratingvector5'].value
 except: pass
 try:
-	lasttiming=lasttiming1+lasttiming2+lasttiming3+lasttiming4
+        lastrating6=myform['ratingvector6'].value
+except: pass
+try:
+        lastrating7=myform['ratingvector7'].value
+except: pass
+try:
+        lastrating8=myform['ratingvector8'].value
+except: pass
+try:
+        lastrating9=myform['ratingvector9'].value
+except: pass
+try:
+        lastrating10=myform['ratingvector10'].value
+except: pass
+try:
+        lasttiming5=myform['timevector5'].value
+except: pass
+try:
+        lasttiming6=myform['timevector6'].value
+except: pass
+try:
+        lasttiming7=myform['timevector7'].value
+except: pass
+try:
+        lasttiming8=myform['timevector8'].value
+except: pass
+try:
+        lasttiming9=myform['timevector9'].value
+except: pass
+try:
+        lasttiming10=myform['timevector10'].value
+except: pass
+try:
+	lastrating=lastrating1+lastrating2+lastrating3+lastrating4+lastrating5+lastrating6+lastrating7+lastrating8+lastrating9+lastrating10
+except: pass
+try:
+	lasttiming=lasttiming1+lasttiming2+lasttiming3+lasttiming4+lasttiming5+lasttiming6+lasttiming7+lasttiming8+lasttiming9+lasttiming10
 except: pass
 #print "%s" % lasttiming
 #print "%s" % lastrating

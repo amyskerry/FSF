@@ -58,8 +58,8 @@ else:
 	lastrating=myform['ratingvector'].value
         lasttiming=myform['timevector'].value
         lastresponse=myform['response'].value
-        lastratinglist=lastrating.split('!!')
-        lasttiminglist=lasttiming.split('!!')
+        lastratinglist=lastrating.split('!')
+        lasttiminglist=lasttiming.split('!')
        	ratingvar='rating1'
 	timingvar='timing1'
 	sql='update FSF_rating set ' +timingvar +' ="'+lasttiming+'" where rownum="'+formindex+'"'
@@ -124,14 +124,22 @@ if (document.getElementById('myvideo').paused==0){
         if (unicode==increasekey) {if (currentpos<10) {currentpos=currentpos+1}}
         if (unicode==decreasekey) {if (currentpos>0) {currentpos=currentpos-1}}
 	currval=range[currentpos]
+	// currval=currval.toFixed(2)
+	// currval=Math.round(currval*100)/100
+	// currval=String(currval)
 	document.getElementById("textfield1").value="";
 	trialvar=trialvar+'!'+currval;
-	newtime=new Date().getTime() / 1000;
-	newtime=newtime-start-gonetime;
-	newtime=Math.round(newtime*100)/100
+	//newtime=new Date().getTime() / 1000;
+	//newtime=newtime-start-gonetime;
+	//newtime=Math.round(newtime*100)/100
+	newtime=document.getElementById('myvideo').currentTime;
+	newtime=newtime.toFixed(2)
 	newtime=String(newtime)
-	newtime=newtime.substr(0,6)
 	trialtime=trialtime+'!'+ newtime;
+	//document.getElementById("tlen").innerHTML=(trialtime.match(/!/g)||[]).length
+	//document.getElementById("rlen").innerHTML=(trialvar.match(/!/g)||[]).length
+	//document.getElementById("tvals").innerHTML=trialtime
+	//document.getElementById("rvals").innerHTML=trialvar
 	currcolor='scalefiles/emph_color'+currval+'.png';
         currimage='colorimage'+currval;
 	// seperate vectors to deal with certain browser's length issues
@@ -140,9 +148,21 @@ if (document.getElementById('myvideo').paused==0){
         document.getElementById("ratingvector2").value=trialvar.substr(500,500);
         document.getElementById("timevector2").value=trialtime.substr(500,500);
         document.getElementById("ratingvector3").value=trialvar.substr(1000,500);
-        document.getElementById("timevector3").value=trialtime.substr(10000,500);
-        document.getElementById("ratingvector4").value=trialvar.substr(1500);
-        document.getElementById("timevector4").value=trialtime.substr(1500);
+        document.getElementById("timevector3").value=trialtime.substr(1000,500);
+        document.getElementById("ratingvector4").value=trialvar.substr(1500,500);
+        document.getElementById("timevector4").value=trialtime.substr(1500,500);
+        document.getElementById("ratingvector5").value=trialvar.substr(2000,500);
+        document.getElementById("timevector5").value=trialtime.substr(2000,500);
+        document.getElementById("ratingvector6").value=trialvar.substr(2500,500);
+        document.getElementById("timevector6").value=trialtime.substr(2500,500);
+        document.getElementById("ratingvector7").value=trialvar.substr(3000,500);
+        document.getElementById("timevector7").value=trialtime.substr(3000,500);
+        document.getElementById("ratingvector8").value=trialvar.substr(3500,500);
+        document.getElementById("timevector8").value=trialtime.substr(3500,500);
+        document.getElementById("ratingvector9").value=trialvar.substr(4000,500);
+        document.getElementById("timevector9").value=trialtime.substr(4000,500);
+        document.getElementById("ratingvector10").value=trialvar.substr(4500,500);
+        document.getElementById("timevector10").value=trialtime.substr(4500,500);
 
 
         document.getElementById("colorimage0").src='scalefiles/color0.png';
@@ -178,25 +198,25 @@ if (document.getElementById('myvideo').paused==1){
 	gonetime=0;
 	}
 	else {
-        newtime=new Date().getTime() / 1000;
-	newtime=Math.round(newtime*100)/100
-        lapsedtime=newtime-start-pausetime
-	gonetime=gonetime+lapsedtime
-	newtime=newtime-start-gonetime
+        //newtime=new Date().getTime() / 1000;
+	//lapsedtime=newtime-start-pausetime
+	//gonetime=gonetime+lapsedtime
+	//newtime=newtime-start-gonetime
+        newtime=document.getElementById('myvideo').currentTime;
+	newtime=newtime.toFixed(2)
         newtime=String(newtime)
-        newtime=newtime.substr(0,6)
         trialtime=trialtime+'!'+ newtime;
         trialvar=trialvar+'!PLAY';
 	}
 }
 else {
 	document.getElementById('myvideo').pause();
-        newtime=new Date().getTime() / 1000;
-        newtime=newtime-start-gonetime
-        pausetime=newtime
-	newtime=Math.round(newtime*100)/100
-        newtime=String(newtime)
-        newtime=newtime.substr(0,6)
+        //newtime=new Date().getTime() / 1000;
+        //newtime=newtime-start-gonetime
+        //pausetime=newtime
+        newtime=document.getElementById('myvideo').currentTime;
+	newtime=newtime.toFixed(2)
+	newtime=String(newtime)
         trialtime=trialtime+'!'+ newtime;
         trialvar=trialvar+'!PAUSE';
 	}
@@ -209,16 +229,17 @@ if (document.getElementById('myvideo').ended==1){
         }
 if (document.getElementById('myvideo').paused==0){
         document.getElementById('myvideo').pause();
-        newtime=new Date().getTime() / 1000;
-        newtime=newtime-start-gonetime
-	newtime=Math.round(newtime*100)/100
-        pausetime=newtime
+        //newtime=new Date().getTime() / 1000;
+        //newtime=newtime-start-gonetime
+        //pausetime=newtime
+	newtime=document.getElementById('myvideo').currentTime;
+	newtime=newtime.toFixed(2)
 	newtime=String(newtime)
-        newtime=newtime.substr(0,6)
         trialtime=trialtime+'!'+ newtime;
         trialvar=trialvar+'!PAUSE';
 }
 }
+
 </script>
 </head>
 '''
@@ -233,6 +254,14 @@ else:
 #print "main loop"
 print "<center>Rate the video for: <b>%s</b><br>" % (dim)
 print "<br>%s<br>" % dimQ
+#print "<script>var tlen='timelength';</script>"
+#print "<script>var rlen='ratelength';</script>"
+#print "<p id='tlen'><script>document.write(tlen)</script></p>"
+#print "<p id='rlen'><script>document.write(rlen)</script></p>"
+#print "<p id='tvals'>dummytime</p>"
+#print "<p id='rvals'>dummyrate</p>"
+#print "<script>document.write(rlen)</script>"
+#print "<script>document.write(tlen)</script>"
 print "<br>Remember to rate<b> all 4 clips</b>. Do not press Submit until the video has progressed through 4 clips. If the movie pauses, press the green button to continue."
 print "<form name='thisform' action='%s' method='submit' onSubmit='return validate(thisform)'>" %nextscript
 #print "<video width='512' height='384' id='myvideo' muted><source src=%s type='video/mp4'></video>" % (tempmov)
@@ -269,10 +298,22 @@ print '''
 <input type="hidden" name="ratingvector2" id="ratingvector2" size=300 value="rating">
 <input type="hidden" name="ratingvector3" id="ratingvector3" size=300 value="rating">
 <input type="hidden" name="ratingvector4" id="ratingvector4" size=300 value="rating">
+<input type="hidden" name="ratingvector5" id="ratingvector5" size=300 value="rating">
+<input type="hidden" name="ratingvector6" id="ratingvector6" size=300 value="rating">
+<input type="hidden" name="ratingvector7" id="ratingvector7" size=300 value="rating">
+<input type="hidden" name="ratingvector8" id="ratingvector8" size=300 value="rating">
+<input type="hidden" name="ratingvector9" id="ratingvector9" size=300 value="rating">
+<input type="hidden" name="ratingvector10" id="ratingvector10" size=300 value="rating">
 <input type="hidden" name="timevector1" id="timevector1" size=300 value="timing">
 <input type="hidden" name="timevector2" id="timevector2" size=300 value="timing">
 <input type="hidden" name="timevector3" id="timevector3" size=300 value="timing">
 <input type="hidden" name="timevector4" id="timevector4" size=300 value="timing">
+<input type="hidden" name="timevector5" id="timevector5" size=300 value="timing">
+<input type="hidden" name="timevector6" id="timevector6" size=300 value="timing">
+<input type="hidden" name="timevector7" id="timevector7" size=300 value="timing">
+<input type="hidden" name="timevector8" id="timevector8" size=300 value="timing">
+<input type="hidden" name="timevector9" id="timevector9" size=300 value="timing">
+<input type="hidden" name="timevector10" id="timevector10" size=300 value="timing">
 <input type="hidden" name="keycode" value="'''+keycode+'''">
 <input type="hidden" name="qindex" value="'''+qindex+'''">
 <input type="hidden" name="rownum" value="'''+formindex+'''"> 	
