@@ -263,7 +263,7 @@ print "<br>%s<br>" % dimQ
 #print "<script>document.write(rlen)</script>"
 #print "<script>document.write(tlen)</script>"
 print "<br>Remember to rate<b> all 4 clips</b>. Do not press Submit until the video has progressed through 4 clips. If the movie pauses, press the green button to continue."
-print "<form name='thisform' action='%s' method='submit' onSubmit='return validate(thisform)'>" %nextscript
+print "<form name='thisform' action='%s' method='post' onSubmit='return validate(thisform)'>" %nextscript
 #print "<video width='512' height='384' id='myvideo' muted><source src=%s type='video/mp4'></video>" % (tempmov)
 print "<video width='512' height='384' id='myvideo' muted><source src=%s type='video/mp4'></video>" % (moviename)
 #print "<div id='video-overlay'> </div>"

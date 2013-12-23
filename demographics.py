@@ -204,7 +204,7 @@ print '''
 <br>
 <p style="text-align:center">Thank you for completing our study! We have a few quick follow up questions for you.</p>
 <br>
-<form name="myform" action="debrief.py" method="submit" onSubmit="return validate(myform)">
+<form name="myform" action="debrief.py" method="post" onSubmit="return validate(myform)">
 <div class=pagealign> 
 Please tell us where you are from.
 <br>

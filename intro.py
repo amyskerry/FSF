@@ -51,7 +51,7 @@ if testintro==0:
         print "<center><br><br> OOPS:<br>"
         print "It appears that you did not complete the practice trial appropriately. Please click below to try again.<br> Remember, click the green button to begin, and follow the instructions in the video clip."
 	print '''
-	<form name="myform" action="play.py" method="submit" onSubmit="return validate(myform)">
+	<form name="myform" action="play.py" method="post" onSubmit="return validate(myform)">
 	<input type="hidden" name='subjid' value="'''+subjid+'''">	
 	<input type="hidden" name="qindex" value="'''+str(qindex)+'''">
 	<input type="hidden" name="enterlogin" value="logged">
@@ -172,7 +172,7 @@ function pausemyvideodef(){
         print "<center><br><br>Let's start by practicing using the scale to rate something easy. <br><b>To begin a practice trial, click the green box below and follow the instructions on the video.</b> <br><br>Remember, you can use the right and left arrow keys on your keyboard to move around the scale. <br><br>"
         print "<br><video id='myvideo' width='512' height='384'><source src=%s type='video/mp4'></video>" % (moviename)                
   	print '''
-  	<form name="thisform" action="directions.py" method="submit" onSubmit="return validate(thisform)">
+  	<form name="thisform" action="directions.py" method="post" onSubmit="return validate(thisform)">
   	<input type="text" id="textfield1"  onClick='pausemyvideo()' onBlur='pausemyvideodef()' style='background-image: url("http://mindhive.mit.edu/saxe/FSF/startbutton.png");height:60px;width:199px;color:#32CD32;border:none' value="" onkeydown="myfunction(thisform)"><br>
   	<img id='colorimage0' alt='temp' src='scalefiles/emph_color0.png' width='40' height='30'><img id='colorimage1' alt='temp' src='scalefiles/color1.png' width='40' height='30'><img id='colorimage2' alt='temp' src='scalefiles/color2.png' width='40' height='30'><img id='colorimage3' alt='temp' src='scalefiles/color3.png' width='40' height='30'><img id='colorimage4' alt='temp' src='scalefiles/color4.png' width='40' height='30'><img id='colorimage5' alt='temp' src='scalefiles/color5.png' width='40' height='30'><img id='colorimage6' alt='temp' src='scalefiles/color6.png' width='40' height='30'><img id='colorimage7' alt='temp' src='scalefiles/color7.png' width='40' height='30'><img id='colorimage8' alt='temp' src='scalefiles/color8.png' width='40' height='30'><img id='colorimage9' alt='temp' src='scalefiles/color9.png' width='40' height='30'><img id='colorimage10' alt='temp' src='scalefiles/color10.png' width='40' height='30'>
         

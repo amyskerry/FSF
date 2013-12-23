@@ -103,7 +103,7 @@ qindex=str(qindex)
  
 print '''
 <div id="page_content" align="center";  margin-left: 160px;">
-<form name="myform" action="play.py" method="submit" onSubmit="return validate(myform)">
+<form name="myform" action="play.py" method="post" onSubmit="return validate(myform)">
 Subject ID:<br>
 <input type="text" name="subjid">
 <br>
